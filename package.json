@@ -6,6 +6,17 @@
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeereshBiradar/Namaste-React2.git"
+  },
+  "keywords": [
+    "react.js"
+  ],
   "author": "Veeresh Biradar",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VeereshBiradar/Namaste-React2/issues"
+  },
+  "homepage": "https://github.com/VeereshBiradar/Namaste-React2#readme"
 }
