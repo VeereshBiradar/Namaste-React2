@@ -1,0 +1,11 @@
+{
+  "name": "namaste-react2",
+  "version": "1.0.0",
+  "description": "Namaste-React2",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Veeresh Biradar",
+  "license": "ISC"
+}
