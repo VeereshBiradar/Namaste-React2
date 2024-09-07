@@ -4,8 +4,8 @@ const Header = () => {
     return (
       <header className="header">
         <img src={logo} alt="logo" className="header__logo" />
-        <div class="marquee-container">
-        <div class="marquee-text">Welcome to Namaste restaurant</div>
+        <div className="marquee-container">
+        <div className="marquee-text">Welcome to Namaste restaurant</div>
     </div>
         <nav className="header__nav">
           <ul className="header__nav-list">

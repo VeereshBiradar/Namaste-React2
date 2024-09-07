@@ -170,7 +170,7 @@
   white-space: nowrap;
   font-size: 24px;
   font-weight: bold;
-  color: #fff;
+  color: orange;
   animation: marquee 12s linear infinite;
 }
 
@@ -209,4 +209,51 @@
   to {
       opacity: 0.5;
   }
+}
+
+
+
+.filter-button {
+  background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.filter-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.75s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.filter-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.filter-button:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.filter-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
