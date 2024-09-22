@@ -16,6 +16,11 @@
   color: white;
   font-weight: 600;
 
+  a{
+    color: white !important;
+    text-decoration: none;
+  }
+
   &__logo {
     width: 80px;
   }
