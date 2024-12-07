@@ -33,3 +33,12 @@ Footer
   --Links
   --Address
   --Contact
+
+
+
+
+  //code slow, be curious of each and every line, word why you're writing, is there any alternative way, and go deep of it 
+
+  //code slow so you make lesser error if come debugging will be done in less time or lese take more time if you code fast
+
+  while wrting the cutom hooks / code refactoring think about contract what is input & output needed

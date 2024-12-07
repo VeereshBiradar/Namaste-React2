@@ -15,12 +15,6 @@ const Body = () => {
     fetchRestaurants();
   }, []);
 
-  console.log("Data got loaded")
-
-  //code slow, be curious of each and every line, word why you're writing, is there any alternative way, and go deep of it 
-
-  //code slow so you make lesser error if come debugging will be done in less time or lese take more time if you code fast
-
 
   const fetchRestaurants = async () => {
     setLoading(true)
@@ -30,11 +24,11 @@ const Body = () => {
       const fetchedRestaurants =
         data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants || [];
-          
+
       setRestaurants(fetchedRestaurants);
       setFilteredRestaurants(fetchedRestaurants);
     }
-    catch (error){
+    catch (error) {
       console.error("Error fetching restaurants:", error);
     }
     finally {
@@ -44,23 +38,22 @@ const Body = () => {
 
   const filterTopRatedRestaurants = () => {
     if (filteredRestaurants.length !== restaurants.length) {
-       // If already filtered, reset to full list
-       setFilteredRestaurants(restaurants);
+      setFilteredRestaurants(restaurants);
     } else {
-       const topRatedRestaurants = restaurants.filter(
-          (res) => res?.info?.avgRatingString > 4.5
-       );
-       setFilteredRestaurants(topRatedRestaurants);
+      const topRatedRestaurants = restaurants.filter(
+        (res) => res?.info?.avgRatingString > 4.5
+      );
+      setFilteredRestaurants(topRatedRestaurants);
     }
- };
- 
+  };
+
 
   const handleSearch = (e) => {
     const value = e.target.value;
 
     setSearchValue(value);
 
-    if(value.trim() === '') {
+    if (value.trim() === '') {
       setFilteredRestaurants(restaurants);
     }
     else {
@@ -104,9 +97,9 @@ const Body = () => {
           <h1>No results found</h1>
         ) : (
           // Render restaurant cards if there are results
-              filteredRestaurants.map((res) => (
-                <Link to={'/restaurant/' + res.info.id} key={res.info.id}> <RestaurantCard resData={res} /></Link>
-              ))
+          filteredRestaurants.map((res) => (
+            <Link to={'/restaurant/' + res.info.id} key={res.info.id}> <RestaurantCard resData={res} /></Link>
+          ))
         )}
       </div>
     </main>
