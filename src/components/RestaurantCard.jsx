@@ -1,6 +1,6 @@
 const RestaurantCard = ({ resData }) => {
 
-  const { name, locality, areaName,cuisines, avgRatingString, cloudinaryImageId, costForTwo } = resData.info || {};
+  const { name, locality, areaName, cuisines, avgRatingString, cloudinaryImageId, costForTwo } = resData.info || {};
 
   const imageUrl = cloudinaryImageId
     ? `https://media-assets.swiggy.com/swiggy/image/upload/${cloudinaryImageId}`
@@ -30,5 +30,16 @@ const RestaurantCard = ({ resData }) => {
     </div>
   );
 };
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <>
+        <label>Promoted</label>
+        <RestaurantCard {...props}/>
+      </>
+    )
+  }
+}
 
 export default RestaurantCard;

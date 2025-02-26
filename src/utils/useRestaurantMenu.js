@@ -11,7 +11,6 @@ const useRestaurantMenu = (resId) => {
         setResInfo(data);
     }
 
-
     useEffect(() => {
         getRestaurantInfo();
     }, []);
