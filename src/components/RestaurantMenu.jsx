@@ -11,10 +11,6 @@ const RestaurantMenu = () => {
 
     const onlineStatus = useOnlineStatus();
 
-    console.log("online status ❤️❤️❤️✅", onlineStatus)
-
-    console.log(resInfo);
-
     if (resInfo === null) {
         return <ShimmerCard />
     }

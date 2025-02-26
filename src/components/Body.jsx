@@ -1,5 +1,5 @@
 import { API_URL } from "../utils/constant";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerCard from "./ShimmerCard";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ const Body = () => {
     fetchRestaurants();
   }, []);
 
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   const fetchRestaurants = async () => {
     setLoading(true)
@@ -46,7 +47,6 @@ const Body = () => {
       setFilteredRestaurants(topRatedRestaurants);
     }
   };
-
 
   const handleSearch = (e) => {
     const value = e.target.value;
@@ -87,18 +87,15 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-container">
-        {/* Show Shimmer UI while loading */}
         {loading ? (
           Array.from({ length: shimmerCount }).map((_, index) => (
             <ShimmerCard key={index} />
           ))
         ) : filteredRestaurants.length === 0 ? (
-          // Display "No results found" if no restaurants match the search or filter
           <h1>No results found</h1>
         ) : (
-          // Render restaurant cards if there are results
           filteredRestaurants.map((res) => (
-            <Link to={'/restaurant/' + res.info.id} key={res.info.id}> <RestaurantCard resData={res} /></Link>
+            <Link to={'/restaurant/' + res.info.id} key={res.info.id}>{res.info.promoted ? (<RestaurantCardPromoted resData={res} />) : (<RestaurantCard resData={res} />)}</Link>
           ))
         )}
       </div>
