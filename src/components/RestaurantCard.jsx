@@ -1,5 +1,4 @@
 const RestaurantCard = ({ resData }) => {
-
   const { name, locality, areaName, cuisines, avgRatingString, cloudinaryImageId, costForTwo } = resData.info || {};
 
   const imageUrl = cloudinaryImageId
@@ -7,36 +6,41 @@ const RestaurantCard = ({ resData }) => {
     : 'https://placeholder-image.com/150x150';
 
   return (
-    <div className="restaurant-card">
-      <div className="restaurant-card__image-container">
+    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1 w-72 h-96 mt-8 cursor-pointer flex flex-col">
+      <div className="w-full h-44 overflow-hidden rounded-t-lg">
         <img
           src={imageUrl}
           alt="restaurant-card"
-          className="restaurant-card__image"
+          className="w-full h-full object-cover transition-transform duration-200 hover:scale-110"
         />
       </div>
-      <div className="restaurant-card__info">
-        <h2 className="restaurant-card__name">{name}</h2>
-        <h3 className="restaurant-card__cuisine">{locality}, {areaName}</h3>
-        <div className="restaurant-card__details">
-          <span className="restaurant-card__rating">{avgRatingString} ★</span>
-          <span className="restaurant-card__delivery-time">5.89 mins</span>
+      <div className="p-4 flex-grow flex flex-col justify-between">
+        <div>
+          <h2 className="text-lg font-bold text-gray-800 mb-1 truncate">{name}</h2>
+          <h3 className="text-sm text-gray-600 mb-2 truncate">{locality}, {areaName}</h3>
         </div>
-        <h3 className="restaurant-card__cuisine">{costForTwo}</h3>
-        <h4 className="restaurant-card__cuisine">
-          {cuisines?.length > 0 ? cuisines.slice(0, 3).join(', ') : cuisines}
-        </h4>
+        <div className="flex justify-between items-center mb-2">
+          <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm">{avgRatingString} ★</span>
+          <span className="text-sm text-gray-500">5.89 mins</span>
+        </div>
+        <div>
+          <h3 className="text-sm text-gray-700 font-semibold">{costForTwo}</h3>
+          <h4 className="text-sm text-orange-500 font-bold truncate">
+            {cuisines?.length > 0 ? cuisines.slice(0, 3).join(', ') : cuisines}
+          </h4>
+        </div>
       </div>
     </div>
   );
 };
+
 
 export const withPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <>
         <label>Promoted</label>
-        <RestaurantCard {...props}/>
+        <RestaurantCard {...props} />
       </>
     )
   }
