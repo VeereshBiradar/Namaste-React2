@@ -7,13 +7,13 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <header className="header">
+    <header className="flex">
      <Link to={'/'}> <img src={logo} alt="logo" className="header__logo" /></Link>
       <div className="marquee-container">
         <div className="marquee-text">Welcome to Namaste restaurant</div>
       </div>
       <nav className="header__nav">
-        <ul className="header__nav-list">
+        <ul className="flex">
           <li className="header__nav-item"><Link to='/'>Home</Link></li>
           <li className="header__nav-item"><Link to='/about'>About</Link></li>
           <li className="header__nav-item"><Link to='/contact'>Contact</Link></li>

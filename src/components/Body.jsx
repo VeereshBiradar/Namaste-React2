@@ -86,7 +86,7 @@ const Body = () => {
           Filter Top Rated Restaurant
         </button>
       </div>
-      <div className="restaurant-container">
+      <div className="flex flex-wrap gap-5">
         {loading ? (
           Array.from({ length: shimmerCount }).map((_, index) => (
             <ShimmerCard key={index} />
