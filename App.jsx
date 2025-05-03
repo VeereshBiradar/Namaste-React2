@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, use, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import Header from "./src/components/Header";
@@ -8,16 +8,32 @@ import Contact from "./src/components/Contact";
 import About from "./src/components/About";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+import { USERCONTEXT } from "./src/utils/userContext";
 
 // Lazy load the Grocery component
 const Grocery = lazy(() => import('./src/components/Grocery'));
 
 const App = () => {
+
+  const { loggedInUser } = useContext(USERCONTEXT)
+
+  const userData = {
+    loggedInUser: "Priya Biradar"
+  }
+
+  console.log(userData)
+
+
+
   return (
-    <>
-      <Header />
-      <Outlet />
-    </>
+    
+      <USERCONTEXT.Provider value={{ loggedInUser : "Sandhya Patil"}}>
+        <USERCONTEXT.Provider value={ { loggedInUser: loggedInUser}}>
+        <Header />
+        </USERCONTEXT.Provider>
+        <Outlet />
+      </USERCONTEXT.Provider>
+    
   );
 };
 

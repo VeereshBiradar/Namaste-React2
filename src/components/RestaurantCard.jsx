@@ -1,5 +1,11 @@
+import { useContext } from "react";
+import { USERCONTEXT } from "../utils/userContext";
+
 const RestaurantCard = ({ resData }) => {
   const { name, locality, areaName, cuisines, avgRatingString, cloudinaryImageId, costForTwo } = resData.info || {};
+
+  const { loggedInUser } = useContext(USERCONTEXT)
+  console.log(loggedInUser)
 
   const imageUrl = cloudinaryImageId
     ? `https://media-assets.swiggy.com/swiggy/image/upload/${cloudinaryImageId}`
@@ -28,6 +34,7 @@ const RestaurantCard = ({ resData }) => {
           <h4 className="text-sm text-orange-500 font-bold truncate">
             {cuisines?.length > 0 ? cuisines.slice(0, 3).join(', ') : cuisines}
           </h4>
+          <h1>{loggedInUser}</h1>
         </div>
       </div>
     </div>
@@ -39,7 +46,7 @@ export const withPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <>
-        <label>Promoted</label>
+        <label className="absolute bg-black text-white-500 rounded-lg">Promoted</label>
         <RestaurantCard {...props} />
       </>
     )

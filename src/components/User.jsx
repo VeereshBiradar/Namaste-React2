@@ -19,7 +19,6 @@ class User extends Component {
 
         const url = await fetch('https://api.github.com/users/VeereshBiradar');
         const data = await url.json();
-        console.log(data);
 
         //when we call setState then the updating state begins
         this.setState({ userInfo: data})
