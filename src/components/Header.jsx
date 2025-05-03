@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constant";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import { USERCONTEXT } from "../utils/userContext";
 
 const Header = () => {
 
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(USERCONTEXT)
+  console.log("Header lOgged in user", loggedInUser)
 
   return (
     <header className="flex">
@@ -20,6 +24,7 @@ const Header = () => {
           <li className="header__nav-item"><Link to='/grocery'>Grocery</Link></li>
           <li className="header__nav-item">Cart</li>
           <li className="header__nav-item">Online Status: {onlineStatus ? '🟢' : '🔴'}</li>
+          <li> LoggedIn User: { loggedInUser }</li>
         </ul>
       </nav>
     </header>
